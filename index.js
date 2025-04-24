@@ -28,7 +28,7 @@ const registerChat = (chatId) => {
 
 app.command("floor", (ctx) => {
   registerChat(ctx.chat.id);
-  sendFloor(ctx.chat.id, app);
+  sendFloor(ctx.chat.id, app, data.auth);
 });
 
 app.command("latest", (ctx) => {
