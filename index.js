@@ -43,7 +43,7 @@ app.launch(() => {
 setInterval(() => {
   if (data.chatsId.length != 0) {
     data.chatsId.forEach((id) => {
-      sendFloor(id);
+      sendFloor(id, app);
     });
   }
 }, 1800000);
