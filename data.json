@@ -1,0 +1,10 @@
+{
+  "TELEGRAM_TOKEN": "bot-telegram-token",
+  "auth": "tonnel-auth-data",
+  "chatsId": [],
+  "latestSale": {
+    "time": ""
+  },
+  "floorRequestUrl": "https://gifts2.tonnel.network/api/pageGifts",
+  "latestRequestUrl": "https://gifts2.tonnel.network/api/saleHistory"
+}

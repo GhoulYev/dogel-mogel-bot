@@ -1,2 +1,6 @@
 node_modules/
-data.json
+src/data.json
+dist/
+depr/
+log.txt
+buffer-data.json
