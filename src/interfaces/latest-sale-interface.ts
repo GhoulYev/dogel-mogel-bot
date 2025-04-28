@@ -1,3 +1,3 @@
 interface ILatestSale {
-  time: String;
+  time: string;
 }

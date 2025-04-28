@@ -25,9 +25,9 @@ export class TonnelApi {
           response
             .json()
             .then((jsonData) => resolve(jsonData[0]))
-            .catch((error) => reject(`${error.toString} in TonnelApi`));
+            .catch((error) => reject(`${error.toString()} in TonnelApi`));
         })
-        .catch((error) => reject(`${error.toString} in TonnelApi`));
+        .catch((error) => reject(`${error.toString()} in TonnelApi`));
     });
   }
 }
