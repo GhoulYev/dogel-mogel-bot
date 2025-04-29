@@ -6,6 +6,7 @@ import {
 } from "telegraf/typings/core/types/typegram";
 import { latestSaleInlineQueryObject } from "./inlineQueryObjects/latestSale";
 import { floorInlineQueryObject } from "./inlineQueryObjects/floor";
+import { showLog } from "../../logging/logging";
 
 export const inlineQueryHandler = async (
   tonnel: TonnelApi,
@@ -17,7 +18,12 @@ export const inlineQueryHandler = async (
         await latestSaleInlineQueryObject(gift),
         await floorInlineQueryObject(floor),
       ];
-      ctx.answerInlineQuery(inline);
+      ctx
+        .answerInlineQuery(inline)
+        .then(() => {
+          showLog(`Sent inline message to user ${ctx.from.id}`);
+        })
+        .catch((error) => showLog(`${error.toString} in Inline`));
     });
   });
 };
