@@ -7,8 +7,8 @@ export const latestSaleInlineQueryObject = (
   return {
     type: "article",
     id: "2",
-    title: "Displays last sale dogel",
-    description: "Sent latest sale ",
+    title: "Latest Sale",
+    description: "Displays last sale dogel",
     input_message_content: {
       message_text: getLatestSaleString(gift),
       parse_mode: "HTML",
