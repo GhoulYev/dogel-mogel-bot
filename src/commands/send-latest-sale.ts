@@ -3,7 +3,8 @@ import { showLog } from "../logging/logging";
 import { getLatestSaleRequestOptions } from "../requests/latest-sale-request-options";
 import { TonnelApi } from "../api/tonnel-api";
 
-export const getLatestSaleString = (gift: any, date: Date): string => {
+export const getLatestSaleString = (gift: any): string => {
+  const date: Date = new Date(gift.timestamp);
   return `<b>Latest Sale</b>: Dogel Mogel <a href="t.me/nft/EasterEgg-${
     gift.gift_num
   }">#${gift.gift_num}</a>\nPrice: <b>${gift.price.toFixed(2)} ${
@@ -24,9 +25,8 @@ export const sendLatestSale = (
   tonnel
     .getLatestSale()
     .then((data) => {
-      const date: Date = new Date(data.timestamp);
       app.telegram
-        .sendMessage(chatId, getLatestSaleString(data, date), {
+        .sendMessage(chatId, getLatestSaleString(data), {
           parse_mode: "HTML",
         })
         .then(() => {

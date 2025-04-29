@@ -1,10 +1,15 @@
 import { Telegraf } from "telegraf";
 import { readData, writeData } from "./data-manager";
 import { showLog } from "./logging/logging";
-import { sendFloor } from "./commands/send-floor";
-import { sendLatestSale } from "./commands/send-latest-sale";
+import { getFloorString, sendFloor } from "./commands/send-floor";
+import {
+  getLatestSaleString,
+  sendLatestSale,
+} from "./commands/send-latest-sale";
 import { initIntervals } from "./intervals/init";
 import { TonnelApi } from "./api/tonnel-api";
+import { InlineQueryResult } from "telegraf/typings/core/types/typegram";
+import { inlineQueryHandler } from "./commands/inline-query/inline-query";
 
 const data: IData = readData();
 
@@ -27,6 +32,10 @@ app.command("floor", (ctx) => {
 app.command("latest", (ctx) => {
   registerChat(ctx.chat.id);
   sendLatestSale(ctx.chat.id, app, data, tonnel);
+});
+
+app.on("inline_query", (ctx) => {
+  inlineQueryHandler(tonnel, ctx);
 });
 
 app.launch(() => {

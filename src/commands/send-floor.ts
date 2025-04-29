@@ -1,5 +1,4 @@
 import { Telegraf } from "telegraf";
-import { getFloorRequestOptinons } from "../requests/floor-request-options";
 import { showLog } from "../logging/logging";
 import { TonnelApi } from "../api/tonnel-api";
 
